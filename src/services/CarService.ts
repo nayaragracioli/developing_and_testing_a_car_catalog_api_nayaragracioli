@@ -2,7 +2,9 @@ import { Car } from "@prisma/client";
 import { TCarCreate, TCarReturn, TCarUpdate } from "../interfaces/car.interface";
 import { carReturnSchema } from "../schemas/car.schema";
 import { prisma } from "../database/database";
+import { injectable } from "tsyringe";
 
+@injectable()
 export class CarService {
     public create = async (payload: TCarCreate): Promise<TCarReturn> => {
         return carReturnSchema.parse(await prisma.car.create({data: payload}));

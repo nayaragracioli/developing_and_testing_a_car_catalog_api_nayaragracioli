@@ -2,12 +2,16 @@ import { Router } from "express";
 import { CarController } from "../controller/CarController";
 import { ensure } from "../middleware/ensure.middleware";
 import { carCreateSchema, carUpdateSchema } from "../schemas/car.schema";
+import { container } from "tsyringe";
+import { CarService } from "../services/CarService";
 
 export const carRouter = Router();
-const controller = new CarController();
 
-carRouter.post("/post", ensure.validBody(carCreateSchema), controller.create);
-carRouter.get("", controller.read);
+container.registerSingleton("CarService", CarService)
+const controller = container.resolve(CarController);
+
+carRouter.post("/post", ensure.validBody(carCreateSchema), (req, res) => controller.create(req, res));
+carRouter.get("", (req, res) => controller.read(req, res));
 
 
 carRouter.use("/:carId", ensure.paramsIdExists({
@@ -16,6 +20,6 @@ carRouter.use("/:carId", ensure.paramsIdExists({
     searchKey: "carId"
 }));
 
-carRouter.get("/:carId", controller.retrieve);
-carRouter.patch("/:carId", ensure.validBody(carUpdateSchema), controller.update);
-carRouter.delete("/:carId", controller.delete);
+carRouter.get("/:carId", (req, res) => controller.retrieve(req, res));
+carRouter.patch("/:carId", ensure.validBody(carUpdateSchema), (req, res) => controller.update(req, res));
+carRouter.delete("/:carId", (req, res) => controller.delete(req, res));
