@@ -1,7 +1,7 @@
 import { AnyZodObject } from "zod";
 import { NextFunction, Request, Response } from "express";
 import { DynamicParamsIdFinder, PrismaClientGeneric } from "../interfaces/utils.interface";
-import { prisma } from "../database/database";
+import { prisma } from "../database/prisma";
 import { AppError } from "../errors/AppError";
 
 class EnsureMiddleware{

@@ -1,7 +1,7 @@
 import { Car } from "@prisma/client";
 import { TCarCreate, TCarReturn, TCarUpdate } from "../interfaces/car.interface";
 import { carReturnSchema } from "../schemas/car.schema";
-import { prisma } from "../database/database";
+import { prisma } from "../database/prisma";
 import { injectable } from "tsyringe";
 
 @injectable()
