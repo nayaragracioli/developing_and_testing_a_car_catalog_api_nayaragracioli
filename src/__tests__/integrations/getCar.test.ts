@@ -1,5 +1,5 @@
 import "reflect-metadata";
-import { carCreateBodyMock, carMock } from "../__mocks__/car.mock";
+import { carCreateBodyMock } from "../__mocks__/car.mock";
 import { request } from "../utils/request";
 import { prisma } from "../../database/prisma";
 

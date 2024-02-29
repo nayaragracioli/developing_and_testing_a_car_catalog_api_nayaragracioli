@@ -9,9 +9,7 @@ describe("Unit test: Get Car.", () => {
 
         prismaMock.car.findFirst.mockResolvedValue(carMock);
         
-
         const data = await carService.retrieve(carMock);
-
 
         expect(data).toStrictEqual(carMock);
     });

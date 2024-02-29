@@ -12,7 +12,6 @@ describe("Unit test: Update Car.", () => {
         prismaMock.car.update.mockResolvedValue(newCarExpect);
         const data = await carService.update(carMock.id, carUpdateBodyMock);
 
-
         expect(data).toStrictEqual(newCarExpect);
     });
 });
