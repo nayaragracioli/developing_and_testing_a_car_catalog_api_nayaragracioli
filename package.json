@@ -32,9 +32,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test:unit": "jest --verbose --runInBand --config jest.config.unit.ts",
-    "test:integration": "jest --verbose --runInBand --config jest.config.integration.ts",
-    "dev": "tsnd --cls --rs --respawn src/server.ts",
+    "test:unit": "dotenv -e .env.test -- jest --verbose --runInBand --config jest.config.unit.ts",
+    "test:integration": "dotenv -e .env.test -- jest --verbose --runInBand --config jest.config.integration.ts",
+    "dev": "dotenv -e .env.dev -- tsnd --cls --rs --respawn src/server.ts",
     "migrate:dev": "dotenv -e .env.dev -- npx prisma migrate dev",
     "migrate:test": "dotenv -e .env.test -- npx prisma migrate dev"
   },
