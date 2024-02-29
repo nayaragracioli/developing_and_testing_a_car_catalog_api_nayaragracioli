@@ -16,8 +16,6 @@ describe("Integration test: Delete Car.", () => {
       .expect(404)
       .then((response) => response.body);
 
-    const expectedValue = { message: "Car not found." };
-
-    expect(data.message).toStrictEqual(expectedValue);
+    expect(data.error).toStrictEqual("Car not found.");
   });
 });

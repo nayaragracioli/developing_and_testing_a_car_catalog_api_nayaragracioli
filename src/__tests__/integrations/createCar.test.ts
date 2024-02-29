@@ -7,7 +7,7 @@ describe("Integration test: Create Car.", () => {
   test("Create Car should work correctly.", async () => {
     
     const data = await request
-      .post("/api/cars")
+      .post("/api/cars/post")
       .send(carCreateBodyMock)
       .expect(201)
       .then((response) => response.body);

@@ -25,6 +25,6 @@ describe("Integration test: Update Car.", () => {
        .expect(404)
        .then((response) => response.body);
        
-    expect(data.message).toStrictEqual("Car not found.");
+    expect(data.error).toStrictEqual("Car not found.");
  });
 });
