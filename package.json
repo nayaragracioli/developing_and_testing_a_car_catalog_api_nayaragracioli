@@ -32,7 +32,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "jest --verbose --runInBand",
+    "test:unit": "jest --verbose --runInBand --config jest.config.unit.ts",
+    "test:integration": "jest --verbose --runInBand --config jest.config.integration.ts",
     "dev": "tsnd --cls --rs --respawn src/server.ts",
     "migrate:dev": "dotenv -e .env.dev -- npx prisma migrate dev",
     "migrate:test": "dotenv -e .env.test -- npx prisma migrate dev"

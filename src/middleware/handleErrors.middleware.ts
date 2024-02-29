@@ -18,4 +18,3 @@ export class HandleErrors{
     }
 };
 
-// export const handleErrors = new HandleErrors();

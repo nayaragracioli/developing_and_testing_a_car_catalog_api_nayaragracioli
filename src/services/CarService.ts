@@ -18,6 +18,7 @@ export class CarService {
         return carReturnSchema.parse(foundResource);
     };
 
+
     public update = async (carId: string, payload: TCarUpdate): Promise<TCarReturn> => {
         const updateCar = await prisma.car.update({
             data: payload,
